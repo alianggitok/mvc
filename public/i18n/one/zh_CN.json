@@ -1,0 +1,9 @@
+{
+	"module":{
+		"one":{
+			"title":"标题",
+			"words":"这里可以被翻译。",
+			"view":"{{viewName}}"
+		}
+	}
+}

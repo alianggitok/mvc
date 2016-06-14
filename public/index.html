@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>NGApp</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="renderer" content="webkit">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalabel=no">
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<!--<link rel="stylesheet" href="lib/angular-1.2.29/angular-csp.css">
+	<link rel="stylesheet" href="lib/bootstrap-3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style/common.css">-->
+<link rel="shortcut icon" href="/public/favicon.ico"><link href="/public/style/index.css?4823c997caa7d8424824" rel="stylesheet"></head>
+
+<body ng-controller="mainController">
+
+	<div class="container" ng-cloak>
+		
+		<div ui-view="header"></div>
+		
+		<div ui-view="body"></div>
+		
+		<div ui-view="footer"></div>
+		
+	</div>
+
+
+	<div class="masker">
+		<div class="loader text-center"><span translate="loading"></span></div>
+	</div>
+
+	<script src="lib/requirejs-2.2.0/require.min.js"></script>
+	<script src="script/loader.js"></script>
+<script type="text/javascript" src="/public/script/common.js?4823c997caa7d8424824"></script><script type="text/javascript" src="/public/script/index.js?4823c997caa7d8424824"></script></body>
+
+</html>

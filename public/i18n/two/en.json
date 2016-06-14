@@ -1,0 +1,21 @@
+{
+	"module":{
+		"two":{
+			"title":"Form",
+			"form":{
+				"name":"Name",
+				"password":"Password",
+				"gender":{
+					"label":"Gender",
+					"option":{
+						"male":"Male",
+						"female":"Female"
+					}
+				},
+				"remember":"Remember me",
+				"submit":"Submit",
+				"reset":"Reset"
+			}
+		}
+	}
+}
