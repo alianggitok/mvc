@@ -8,20 +8,15 @@ define(function(){
 			version:'0.02'
 		},
 		path:{
-			root:'',
+			root:'.',
 			view:'/view',
 			i18n:'/i18n'
 		},
 		lang:{
 			cookieKey:'i18n',
 			langs:[
-				{
-					id:'zh_CN',
-					name:'中文'
-				},{
-					id:'en',
-					name:'English'
-				}
+				{id:'zh_CN',name:'中文'},
+				{id:'en',name:'English'}
 			],
 			defaultLang:'zh_CN',
 			filePrefix:'',

@@ -1,5 +1,6 @@
 var webpack=require('webpack'),
 	path=require('path'),
+	configs,
 	ExtractTextPlugin=require('extract-text-webpack-plugin'),
 	HtmlWebpackPlugin=require('html-webpack-plugin'),
 	copyWebpackPlugin=require('copy-webpack-plugin'),
@@ -18,9 +19,11 @@ var webpack=require('webpack'),
 		},
 		copyFile:function(opts){
 			return new copyWebpackPlugin(opts);
+		},
+		hotReplace:function(){
+			return new webpack.HotModuleReplacementPlugin();
 		}
-	},
-	configs={};
+	};
 
 configs={
 	// context:__dirname,
@@ -68,12 +71,15 @@ configs={
 			inject:'body',
 			template:'src/index.html',
 			chunks:['common','index']
-		})
+		}),
+		plugins.hotReplace()
 	],
 	devServer:{
-		contentBase:path.join(__dirname,'/public'),
+		contentBase:path.join(__dirname,'/public/'),
 		inline:true,
+		hot:true,
 		progress:true,
+		host:'127.0.0.1',
 		port:8124
 	}
 };

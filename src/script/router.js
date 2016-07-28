@@ -1,5 +1,7 @@
 define(['require','boot','ui'],function(require,boot,ui){
-	var app=boot.app;
+	var app=boot.app,
+		path=boot.settings.path,
+		viewPath=path.root+path.view;
 	
 	//路由配置
 	function route(stateProvider,urlRouterProvider,locationProvider){
@@ -35,26 +37,26 @@ define(['require','boot','ui'],function(require,boot,ui){
 			abstract: true,
 			views:{
 				'header':{
-					templateUrl:'/view/partial/header/view.html',
+					templateUrl:viewPath+'/partial/header/view.html',
 					resolve:{
-						controller:controllerRequire('headerController','/view/partial/header/controller.js')
+						controller:controllerRequire('headerController',viewPath+'/partial/header/controller.js')
 					},
 					controllerProvider:controllerRegister('headerController','partial/header')
 				},
 				'body':{
-					templateUrl:'/view/partial/body/view.html'
+					templateUrl:viewPath+'/partial/body/view.html'
 				},
 				'footer':{
-					templateUrl:'/view/partial/footer/view.html'
+					templateUrl:viewPath+'/partial/footer/view.html'
 				}
 			}
 		}).state('index.one',{
 			url:'^/one?{id:[0-9]}{name}',
 			views:{
 				'content@index':{//viewname@statename
-					templateUrl:'/view/one/view.html',
+					templateUrl:viewPath+'/one/view.html',
 					resolve:{
-						controller:controllerRequire('oneController','/view/one/controller.js')
+						controller:controllerRequire('oneController',viewPath+'/one/controller.js')
 					},
 					controllerProvider:controllerRegister('oneController','one')
 				}
@@ -63,9 +65,9 @@ define(['require','boot','ui'],function(require,boot,ui){
 			url:'^/two',
 			views:{
 				'content@index':{
-					templateUrl:'/view/two/view.html',
+					templateUrl:viewPath+'/two/view.html',
 					resolve:{
-						controller:controllerRequire('twoController','/view/two/controller.js')
+						controller:controllerRequire('twoController',viewPath+'/two/controller.js')
 					},
 					controllerProvider:controllerRegister('twoController','two')
 				}
