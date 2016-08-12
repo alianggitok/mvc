@@ -1,0 +1,17 @@
+<div class="page-header clearfix">
+	<h1 class="pull-left">{{appInfo.appText}} <small>v{{appInfo.version}}</small></h1>
+	<button class="btn btn-link btn-sm" ng-click="about()">
+		<span class="glyphicon glyphicon-info-sign"></span>
+	</button>
+	<div class="btn-group pull-right">
+		<button ng-repeat="item in langs" type="button" class="btn btn-sm" ng-click="changeLanguage(item.id)" data-trans-lang="{{item.id}}">{{item.name}}</button>
+	</div>
+</div>
+
+<div class="navbar navbar-default">
+	<div class="container">
+		<ul class="nav navbar-nav">
+			<li ng-repeat="item in navi" ui-sref-active="active"><a ui-sref="{{item.state}}">{{item.i18nID|translate}}</a></li>
+		</ul>
+	</div>
+</div>

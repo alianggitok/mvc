@@ -1,0 +1,43 @@
+<div class="well">
+	<h3>{{'module.two.title'|translate}}</h3>
+	
+	<form class="form-horizontal" name="{{form.name}}">
+		<div class="form-group">
+			<label for="" class="col-sm-2 control-label">{{'module.two.form.name'|translate}}</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" name="name" validator="required" ng-model="form.data.name">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="" class="col-sm-2 control-label">{{'module.two.form.password'|translate}}</label>
+			<div class="col-sm-10">
+				<input type="password" class="form-control" name="password" validator="required" ng-model="form.data.password">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="" class="col-sm-2 control-label">{{'module.two.form.gender.label'|translate}}</label>
+			<div class="col-sm-10">
+				<select class="form-control" name="gender" validator="required" ng-model="form.data.gender">
+					<option value="male">{{'module.two.form.gender.option.male'|translate}}</option>
+					<option value="female">{{'module.two.form.gender.option.female'|translate}}</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-10 col-sm-offset-2">
+				<div class="checkbox">
+					<label for=""><input type="checkbox" name="remember" ng-model="form.data.remember"> {{'module.two.form.remember'|translate}}</label>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-10 col-sm-offset-2">
+				<button ng-click="form.submit()" validation-submit="{{form.name}}" class="btn btn-primary">{{'module.two.form.submit'|translate}}</button>
+				<button ng-click="form.setDefault()" class="btn btn-default">{{'module.two.form.setDefault'|translate}}</button>
+				<button validation-reset="{{form.name}}" class="btn btn-default">{{'module.two.form.reset'|translate}}</button>
+			</div>
+		</div>
+	</form>
+	<p>form.data: {{form.data}}</p>
+
+</div>

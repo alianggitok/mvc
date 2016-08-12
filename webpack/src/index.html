@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>NGApp</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="renderer" content="webkit">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalabel=no">
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+</head>
+
+<body ng-controller="mainController">
+
+	<div class="container" ng-cloak>
+		
+		<div ui-view="header"></div>
+		
+		<div ui-view="body"></div>
+		
+		<div ui-view="footer"></div>
+		
+	</div>
+
+
+	<div class="masker">
+		<div class="loader text-center"><span translate="loading"></span></div>
+	</div>
+
+	<script src="./lib/requirejs-2.2.0/require.min.js"></script>
+	<script src="./script/loader.js"></script>
+
+	
+</body>
+
+</html>
