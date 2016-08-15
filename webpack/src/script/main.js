@@ -1,4 +1,4 @@
-require([
+define([
 	'boot',
 	'router',
 	'translater',
@@ -12,7 +12,10 @@ require([
 	ui
 ){
 	var app=boot.app;
-	
+
+	console.log(JSON)
+	JSON.stringify({})
+
 	app.config([
 		'$stateProvider',
 		'$urlRouterProvider',
@@ -57,7 +60,7 @@ require([
 	]);
 
 	app.run(['$rootScope',function($rootScope){
-		
+		$rootScope.settings=boot.settings;
 	}]);
 
 	//主控制器
@@ -65,7 +68,7 @@ require([
 		'$scope','$state','$rootScope','$cookieStore','$translate','$translatePartialLoader',
 		function($scope,$state,$rootScope,$cookieStore,$translate,$translatePartialLoader){
 			var loader=ui.loader();
-			
+
 			//路由事件
 			router.events($rootScope,loader);
 			//i18n
@@ -76,4 +79,5 @@ require([
 	]);
 
 	return app;
+
 });

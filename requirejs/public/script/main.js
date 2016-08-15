@@ -1,4 +1,4 @@
-require([
+define([
 	'boot',
 	'router',
 	'translater',

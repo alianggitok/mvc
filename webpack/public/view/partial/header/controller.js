@@ -1,13 +1,12 @@
-define(['boot'],function(boot){
-	var app=boot.app,
-		path=boot.settings.path,
-		viewPath=path.root+path.view;
+// define(['boot'],function(boot){
+(function(){
+	return ['$rootScope','$scope','$modal',function($rootScope,$scope,$modal){
+		var settings=$rootScope.settings,
+			viewPath=settings.path.root+settings.path.view;
 
-	return ['$scope','$modal',function($scope,$modal){
-		
-		$scope.langs=boot.settings.lang.langs;
-		$scope.appInfo=boot.settings.info;
-		$scope.navi=boot.settings.navi;
+		$scope.langs=$rootScope.settings.lang.langs;
+		$scope.appInfo=$rootScope.settings.info;
+		$scope.navi=$rootScope.settings.navi;
 		
 		$scope.about=function(){
 			$modal.open({
@@ -27,6 +26,6 @@ define(['boot'],function(boot){
 			});
 		};
 		
-		
 	}];
-});
+}());
+// });

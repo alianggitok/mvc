@@ -1,4 +1,5 @@
-define(function(){
+// define(function(){
+(function(){
 	return ['$scope','$stateParams',function($scope,$stateParams){
 		
 		$scope.transFiller={
@@ -8,4 +9,6 @@ define(function(){
 		$scope.params=$stateParams
 		
 	}];
-});
+
+}());
+// });

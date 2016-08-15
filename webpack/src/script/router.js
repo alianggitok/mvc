@@ -1,4 +1,4 @@
-define(['require','boot','ui'],function(require,boot,ui){
+define(['boot','ui','util'],function(boot,ui,util){
 	var app=boot.app,
 		path=boot.settings.path,
 		viewPath=path.root+path.view;
@@ -14,7 +14,7 @@ define(['require','boot','ui'],function(require,boot,ui){
 				}
 				return ['$q','$rootScope',function ($q, $rootScope) {
 					var deferred = $q.defer();
-					require([controllerFile], function (controller) {
+					util.loadScript(controllerFile, function (controller) {
 						app.controller(controllerName, controller);
 						$rootScope.$apply(deferred.resolve);
 						app.debug.log('[ROUTER] '+controllerName+' registed!');

@@ -1,4 +1,4 @@
-define(['require','boot','ui','jquery'],function(require,boot,ui,$){
+define(['jquery'],function($){
 
 	//配置
 	function config(validationProvider){
@@ -12,13 +12,13 @@ define(['require','boot','ui','jquery'],function(require,boot,ui,$){
 		validationProvider.showErrorMessage = true;
 		
 		validationProvider.validCallback=function(element){
-			element.closest('.form-group').removeClass(errorClass).addClass(successClass);
+			$(element).closest('.form-group').removeClass(errorClass).addClass(successClass);
 		};
 		validationProvider.invalidCallback=function(element){
-			element.closest('.form-group').removeClass(successClass).addClass(errorClass);
+			$(element).closest('.form-group').removeClass(successClass).addClass(errorClass);
 		};
 		validationProvider.resetCallback = function(element) {
-            element.closest('.form-group').removeClass(successClass+' '+errorClass);
+            $(element).closest('.form-group').removeClass(successClass+' '+errorClass);
         };
 		
 		validationProvider.setSuccessHTML(function(msg,element,attrs) {
@@ -28,7 +28,7 @@ define(['require','boot','ui','jquery'],function(require,boot,ui,$){
 			return errorIcon+'<span class="control-label">' + msg + '</span>';
 		});
 		validationProvider.addMsgElement = function(element) {
-            element.after('<span></span>');
+            $(element).after('<span></span>');
         };
 	}
 

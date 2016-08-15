@@ -24,8 +24,22 @@ define(['jquery'],function($){
 				},
 				warn:function(){
 					output('warn',arguments);
+				},
+				dir:function(){
+					output('dir',arguments);
 				}
 			};
+		},
+		loadScript:function(url,callback){
+			$.ajax({
+				type: "GET",
+				url: url,
+				dataType: "script",
+				complete:function(res){
+					callback(eval(res.responseText));
+				}
+			});
+			
 		}
 	};
 	

@@ -1,4 +1,5 @@
-define(function(){
+// define(function(){
+(function(){
 	return ['$scope',function($scope){
 
 		$scope.form={
@@ -23,4 +24,6 @@ define(function(){
 		$scope.form.setDefault();
 
 	}];
-});
+
+}());
+// });

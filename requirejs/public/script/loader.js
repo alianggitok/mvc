@@ -62,7 +62,7 @@
 				deps:['jquery','respond']
 			}
 		},
-		deps:['es5-shim','json','main','ui','util'],
+		deps:['es5-shim','json','main'],
 //		urlArgs: 'timestamp_'+(new Date()).getTime(),//not load cache
 		waitSeconds:60//unit second
 	});

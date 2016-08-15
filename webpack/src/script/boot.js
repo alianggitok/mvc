@@ -1,8 +1,7 @@
 define([
-	'require',
 	'settings',
 	'util',
-	'angular',
+	'exports?angular!exports?window.angular!angular',
 	'angular-ui-bootstrap',
 	'angular-cookies',
 	'angular-translate',
@@ -11,7 +10,6 @@ define([
 	'angular-validation',
 	'angular-validation-rule'
 ],function(
-	require,
 	settings,
 	util,
 	ng
@@ -20,23 +18,25 @@ define([
 	var appName=settings.info.appName,
 		debug=util.debug(settings.debug);
 
-	//requirejs 错误处理
-	require.onError=function(err){
-		alert('Requirejs errors: '+ err.requireType+'.');
-		debug.error('>>  Requirejs errors:', err.requireType, err);
-	};
-
 	//手动启动 ngapp
-	require(['domReady!'], function (doc) {
-		debug.info('app booting...');
-		ng.bootstrap(doc,[appName]);
+	ng.element(document).ready(function () {  
+		ng.bootstrap(document, [appName], {
+			//strictDi: true
+		});
 	});
 
 	//声明主模块
-	var app=ng.module(appName,['ui.bootstrap','ui.router','ngCookies','pascalprecht.translate','validation','validation.rule']);
+	var app=ng.module(appName,[
+		'ui.bootstrap',
+		'ui.router',
+		'ngCookies',
+		'pascalprecht.translate',
+		'validation',
+		'validation.rule'
+	]);
 	
 	app.debug=debug;
-	
+
 	return {
 		app:app,
 		settings:settings

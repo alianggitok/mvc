@@ -1,4 +1,4 @@
-define(['require','boot','ui'],function(require,boot,ui){
+define(['boot','ui'],function(boot,ui){
 	var settings=boot.settings,
 		app=boot.app,
 		rootPath=settings.path.root,
