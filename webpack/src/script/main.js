@@ -13,9 +13,6 @@ define([
 ){
 	var app=boot.app;
 
-	console.log(JSON)
-	JSON.stringify({})
-
 	app.config([
 		'$stateProvider',
 		'$urlRouterProvider',
