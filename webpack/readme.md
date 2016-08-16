@@ -11,7 +11,7 @@
 ### Run command to pack:
 - npm run pack
 - or
-- / webpack
+- webpack
 
 ### Run command to start-up by webpack-dev-server:
 - npm run dev
