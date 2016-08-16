@@ -1,11 +1,12 @@
 
 # MVC by AngularJS
 ## Dependencies
-- Package tool：webpack
+- Package tool：Webpack
 - MVVM framework: AngularJS
 
 ## Featrue
-- Load files(views, controllers, i18n files) asynchronously
+- Load files(views, controllers, i18n files) asynchronously(AMD)
+- pack everything by Webpack
 
 ## Install
     npm i -g webpack webpack-dev-server
