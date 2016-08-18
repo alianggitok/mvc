@@ -1,9 +1,0 @@
-{
-	"module":{
-		"one":{
-			"title":"Title",
-			"words":"Can be translated here.",
-			"view":"{{viewName}}"
-		}
-	}
-}

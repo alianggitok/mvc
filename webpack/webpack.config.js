@@ -1,9 +1,19 @@
 var webpack=require('webpack'),
 	path=require('path'),
 	configs,
+	publicPathName='public',
+	devServer={
+		contentBase:'',
+		inline:true,
+		progress:true,
+		host:'localhost',//'127.0.0.1',
+		port:8124
+	},
 	ExtractTextPlugin=require('extract-text-webpack-plugin'),
 	HtmlWebpackPlugin=require('html-webpack-plugin'),
-	copyWebpackPlugin=require('copy-webpack-plugin'),
+	CopyWebpackPlugin=require('copy-webpack-plugin'),
+	CleanWebpackPlugin=require('clean-webpack-plugin'),
+	OpenBrowserWebpackPlugin=require('open-browser-webpack-plugin'),
 	plugins={
 		makeCommons:function(opts){
 			return new webpack.optimize.CommonsChunkPlugin(opts);
@@ -17,10 +27,16 @@ var webpack=require('webpack'),
 		makeHtml:function(opts){
 			return new HtmlWebpackPlugin(opts);
 		},
+		cleanPath:function(opts){
+			return new CleanWebpackPlugin(opts);
+		},
 		copyFile:function(opts){
-			return new copyWebpackPlugin(opts,{
+			return new CopyWebpackPlugin(opts,{
 				copyUnmodified:false
 			});
+		},
+		openBrowser:function(opts){
+			return new OpenBrowserWebpackPlugin(opts);
 		}
 	};
 
@@ -57,8 +73,8 @@ configs={
 	},
 	externals:{},
 	output:{
-		path:path.resolve(__dirname,'public/'),
-		publicPath:'/public/',
+		path:path.resolve(__dirname,publicPathName+'/'),
+		publicPath:'/'+publicPathName+'/',
 		filename:'script/[name].js',
 		chunkFilename:'script/[name].[id].chunk.js'
 	},
@@ -74,6 +90,7 @@ configs={
 		]
 	},
 	plugins:[
+		plugins.cleanPath([publicPathName]),
 		new webpack.ProvidePlugin({
 			$:'jquery',
 			jQuery:'jquery'
@@ -97,15 +114,13 @@ configs={
 			inject:'body',
 			template:'src/index.html',
 			chunks:['common','index']
+		}),
+		plugins.openBrowser({
+			browser:'chrome',
+			url:'http://'+devServer.host+':'+devServer.port+'/'+publicPathName
 		})
 	],
-	devServer:{
-		contentBase:'',
-		inline:true,
-		progress:true,
-//		host:'127.0.0.1',
-		port:8124
-	}
+	devServer:devServer
 };
 
 module.exports=configs;
