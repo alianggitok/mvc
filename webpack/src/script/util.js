@@ -6,27 +6,30 @@ define(['jquery'],function($){
 				turn=true;
 			}
 			
-			function output(method,content){
+			function output(method,contents){
+				// console.log(method,contents)
+				function exec(args){
+					this[method](args);
+				}
 				if(turn){
-					console[method].apply(console,content);
+					exec.apply(console,contents);
 				}
 			}
-			
 			return {
 				log:function(){
-					output('log',arguments);
+					output.call(null,'log',arguments);
 				},
 				error:function(){
-					output('error',arguments);
+					output.call(null,'error',arguments);
 				},
 				info:function(){
-					output('info',arguments);
+					output.call(null,'info',arguments);
 				},
 				warn:function(){
-					output('warn',arguments);
+					output.call(null,'warn',arguments);
 				},
 				dir:function(){
-					output('dir',arguments);
+					output.call(null,'dir',arguments);
 				}
 			};
 		},

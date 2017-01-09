@@ -68,7 +68,7 @@ configs={
 			'router':path.resolve(__dirname,'src/script/router'),
 			'translater':path.resolve(__dirname,'src/script/translater'),
 			'ui':path.resolve(__dirname,'src/script/ui'),
-			'util':path.resolve(__dirname,'src/script/util'),
+			'util':path.resolve(__dirname,'src/script/util')
 		}
 	},
 	externals:{},
@@ -90,7 +90,8 @@ configs={
 		]
 	},
 	plugins:[
-		plugins.cleanPath([publicPathName]),
+		// plugins.cleanPath([publicPathName]),
+		// plugins.minimize(),
 		new webpack.ProvidePlugin({
 			$:'jquery',
 			jQuery:'jquery'
@@ -99,13 +100,9 @@ configs={
 			name:'common',
 			miniChunks:2
 		}),
-//		plugins.minimize(),
 		plugins.extractCss('style/[name].css'),
 		plugins.copyFile([//copy文件
 			{from:'src/view',to:'view'},
-			// {from:'src/script',to:'script'},
-			// {from:'src/style',to:'style'},
-			// {from:'src/lib',to:'lib'},
 			{from:'src/i18n',to:'i18n'}
 		]),
 		plugins.makeHtml({

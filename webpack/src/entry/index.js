@@ -8,4 +8,3 @@ require('json2');
 
 // require('respond.js');
 require('main');
-
